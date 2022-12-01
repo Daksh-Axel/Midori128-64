@@ -11,7 +11,19 @@ def ShuffleCell(state):
     for j in range(len(state[0])):
       state[i][j] = new_state[i][j]
 
+
       
+def InvShuffleCell(state):
+  per = [0, 7, 14, 9, 5, 2, 11, 12, 15, 8, 1, 6, 10, 13, 4, 3]
+  new_state = [ [0]*4 for i in range(4)]
+  for i in range(4):
+    for j in range(4): 
+      r = per[i*4+j]//4
+      c = per[i*4+j]%4
+      new_state[i][j] = state[r][c]
+  for i in range(len(state)):
+    for j in range(len(state[0])):
+      state[i][j] = new_state[i][j]
 
 def MixColumn(state):
   M = [[0, 1, 1, 1],[1, 0, 1, 1],[1, 1, 0, 1],[1, 1, 1, 0]]
